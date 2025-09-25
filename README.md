@@ -2,14 +2,14 @@
 
 This project contains:
 - `backend/` - FastAPI backend
-- `frontend/src/` - TypeScript + HTML frontend (static)
+- `frontend/src/` - TypeScript + HTML frontend
 
 ## Quick start (recommended)
 1. Start backend:
    ```bash
    cd backend
    python -m venv venv
-   source venv/bin/activate   # Windows: venv\Scripts\activate
+   # Windows: venv\Scripts\activate
    pip install -r requirements.txt
    uvicorn app.main:app --reload --host 0.0.0.0 --port 8000
    ```
@@ -24,5 +24,3 @@ This project contains:
 - The backend stores data in `backend/data/issues.json`. It's a simple JSON store (no DB).
 - The frontend expects the backend at `http://localhost:8000`. If you run backend on a different origin/port, update `frontend/src/app.js` and `app.ts` API_BASE constant.
 
-## Deliverables
-This ZIP contains the full project. Follow the Quick start to run locally.
