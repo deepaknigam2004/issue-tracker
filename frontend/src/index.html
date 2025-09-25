@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Issue Tracker</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="container">
+    <h1>Simple Issue Tracker</h1>
+
+    <div class="controls">
+      <input id="searchBox" placeholder="Search title..." />
+      <select id="statusFilter"><option value="">All statuses</option></select>
+      <select id="priorityFilter"><option value="">All priorities</option></select>
+      <select id="assigneeFilter"><option value="">All assignees</option></select>
+
+      <label>PageSize:
+        <select id="pageSizeSelect">
+          <option>5</option><option selected>10</option><option>20</option>
+        </select>
+      </label>
+
+      <button id="createBtn">Create Issue</button>
+    </div>
+
+    <table id="issuesTable">
+      <thead>
+        <tr>
+          <th data-field="id">ID</th>
+          <th data-field="title">Title</th>
+          <th data-field="status">Status</th>
+          <th data-field="priority">Priority</th>
+          <th data-field="assignee">Assignee</th>
+          <th data-field="updatedAt">Updated At</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody></tbody>
+    </table>
+
+    <div class="pagination">
+      <button id="prevPage">Prev</button>
+      <span id="pageInfo"></span>
+      <button id="nextPage">Next</button>
+    </div>
+  </div>
+
+  <!-- Modals / Drawer -->
+  <div id="drawer" class="drawer hidden">
+    <button id="closeDrawer">Close</button>
+    <pre id="drawerContent"></pre>
+  </div>
+
+  <div id="modal" class="modal hidden">
+    <div class="modal-content">
+      <h3 id="modalTitle">Create Issue</h3>
+      <label>Title<input id="m_title" /></label>
+      <label>Description<textarea id="m_description"></textarea></label>
+      <label>Status
+        <select id="m_status">
+          <option value="open">open</option>
+          <option value="in-progress">in-progress</option>
+          <option value="closed">closed</option>
+        </select>
+      </label>
+      <label>Priority
+        <select id="m_priority">
+          <option value="low">low</option>
+          <option value="medium" selected>medium</option>
+          <option value="high">high</option>
+        </select>
+      </label>
+      <label>Assignee<input id="m_assignee" /></label>
+      <div class="modal-actions">
+        <button id="saveBtn">Save</button>
+        <button id="cancelBtn">Cancel</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
